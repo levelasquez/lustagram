@@ -1,13 +1,16 @@
 import React, { Component } from 'react'
 import { StyleSheet, View } from 'react-native'
 
-import { AuthRoutes } from './src/Auth/AuthRoutes'
+import { AuthRoutes, TabRoutes } from './src/Routes'
 
-export default class App extends Component {
+console.disableYellowBox = ['Remote debugger']
+
+export class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <AuthRoutes />
+        {/* <AuthRoutes /> */}
+        <TabRoutes />
       </View>
     )
   }
@@ -19,3 +22,5 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
 })
+
+export default App

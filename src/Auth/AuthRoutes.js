@@ -1,10 +1,26 @@
 import React from 'react'
-import { Text } from 'react-native'
+import { Text, View, Button } from 'react-native'
 import { StackNavigator } from 'react-navigation'
 
-const SignIn = () => (<Text>SignIn Component</Text>)
+const SignIn = ({ navigation: { navigate } }) => (
+  <View>
+    <Text>SignIn Component</Text>
+    <Button
+      title='Sign Up'
+      onPress={() => navigate('SignUp')}
+    />
+  </View>
+)
 
-const SignUp = () => (<Text>SignUp Component</Text>)
+const SignUp = ({ navigation: { goBack } }) => (
+  <View>
+    <Text>SignUp Component</Text>
+    <Button
+      title='Sign In'
+      onPress={() => goBack()}
+    />
+  </View>
+)
 
 const AuthRoutes = StackNavigator({
   SignIn: {

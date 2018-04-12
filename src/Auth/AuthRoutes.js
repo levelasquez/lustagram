@@ -1,9 +1,9 @@
 import React from 'react'
-import { Text, View, Button } from 'react-native'
+import { Text, View, Button, StyleSheet } from 'react-native'
 import { StackNavigator } from 'react-navigation'
 
 const SignIn = ({ navigation: { navigate } }) => (
-  <View>
+  <View style={styles.container}>
     <Text>SignIn Component</Text>
     <Button
       title='Sign Up'
@@ -13,7 +13,7 @@ const SignIn = ({ navigation: { navigate } }) => (
 )
 
 const SignUp = ({ navigation: { goBack } }) => (
-  <View>
+  <View style={styles.container}>
     <Text>SignUp Component</Text>
     <Button
       title='Sign In'
@@ -23,11 +23,14 @@ const SignUp = ({ navigation: { goBack } }) => (
 )
 
 const AuthRoutes = StackNavigator({
-  SignIn: {
-    screen: SignIn,
-  },
-  SignUp: {
-    screen: SignUp,
+  SignIn: { screen: SignIn },
+  SignUp: { screen: SignUp },
+}, { headerMode: 'none' })
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
   },
 })
 

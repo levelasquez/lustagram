@@ -3,7 +3,7 @@ import { StackNavigator, TabNavigator } from 'react-navigation'
 import SignIn from './Auth/SignIn.component'
 import SignUp from './Auth/SignUp.component'
 
-import Home from './Home/Home.component'
+import { Feed, Author, Post, Comment } from './Home'
 import Search from './Search/Search.component'
 import Upload from './Upload/Upload.component'
 import Follow from './Follow/Follow.component'
@@ -14,13 +14,20 @@ const AuthRoutes = StackNavigator({
   SignUp: { screen: SignUp },
 }, { headerMode: 'none' })
 
+const HomeStack = StackNavigator({
+  Feed: { screen: Feed },
+  Author: { screen: Author },
+  Post: { screen: Post },
+  Comment: { screen: Comment },
+})
+
 const TabRoutes = TabNavigator({
-  Home: { screen: Home },
+  Home: { screen: HomeStack },
   Search: { screen: Search },
   Upload: { screen: Upload },
   Follow: { screen: Follow },
   Profile: { screen: Profile },
-})
+}, { tabBarPosition: 'bottom' })
 
 export {
   AuthRoutes,

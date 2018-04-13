@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 
-export class HomeComponent extends Component {
+export class PostComponent extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Home Component</Text>
+        <Text>Post Component</Text>
       </View>
     )
   }
@@ -19,4 +19,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export default HomeComponent
+export default PostComponent

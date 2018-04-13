@@ -18,7 +18,10 @@ const HomeStack = StackNavigator({
   Feed: { screen: Feed },
   Author: { screen: Author },
   Post: { screen: Post },
-  Comment: { screen: Comment },
+  Comment: {
+    screen: Comment,
+    navigationOptions: { tabBarVisible: false },
+  },
 })
 
 const TabRoutes = TabNavigator({

@@ -1,15 +1,25 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { View, Text, Button, StyleSheet } from 'react-native'
 
-export const SignUpComponent = ({ navigation: { goBack } }) => (
-  <View style={styles.container}>
-    <Text>SignUp Component</Text>
-    <Button
-      title='Sign In'
-      onPress={() => goBack()}
-    />
-  </View>
-)
+export class SignUpComponent extends Component {
+  handleGoBack = () => {
+    const { navigation: { goBack } } = this.props
+
+    goBack()
+  }
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text>SignUp Component</Text>
+        <Button
+          title='Sign In'
+          onPress={this.handleGoBack}
+        />
+      </View>
+    )
+  }
+}
 
 const styles = StyleSheet.create({
   container: {

@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import { StyleSheet, View } from 'react-native'
+import { Provider } from 'react-redux'
 
 import { AuthRoutes, TabRoutes } from './src/Routes'
+import Store from './src/Store'
 
 console.disableYellowBox = ['Remote debugger']
 
@@ -9,8 +11,9 @@ export class App extends Component {
   render() {
     return (
       <View style={styles.container}>
-        {/* <AuthRoutes /> */}
-        <TabRoutes />
+        <Provider store={Store}>
+          <AuthRoutes />
+        </Provider>
       </View>
     )
   }

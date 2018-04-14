@@ -1,15 +1,25 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { View, Text, Button, StyleSheet } from 'react-native'
 
-export const SignInComponent = ({ navigation: { navigate } }) => (
-  <View style={styles.container}>
-    <Text>SignIn Component</Text>
-    <Button
-      title='Sign Up'
-      onPress={() => navigate('SignUp')}
-    />
-  </View>
-)
+export class SignInComponent extends Component {
+  handleNavigate = route => () => {
+    const { navigation: { navigate } } = this.props
+
+    navigate(route)
+  }
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text>SignIn Component</Text>
+        <Button
+          title='Sign Up'
+          onPress={this.handleNavigate('SignUp')}
+        />
+      </View>
+    )
+  }
+}
 
 const styles = StyleSheet.create({
   container: {

@@ -28,11 +28,23 @@ const SearchStack = StackNavigator({
   Comment: { screen: Comment },
 })
 
+const TabFollow = TabNavigator({
+  Follow: { screen: Follow },
+  Followers: { screen: Follow },
+}, { tabBarPosition: 'top' })
+
+const FollowStack = StackNavigator({
+  TabFollow: { screen: TabFollow },
+  Author: { screen: Author },
+  Post: { screen: Post },
+  Comment: { screen: Comment },
+})
+
 const TabRoutes = TabNavigator({
   Home: { screen: HomeStack },
   Search: { screen: SearchStack },
   Upload: { screen: Upload },
-  Follow: { screen: Follow },
+  Follow: { screen: FollowStack },
   Profile: { screen: Profile },
 }, { tabBarPosition: 'bottom' })
 

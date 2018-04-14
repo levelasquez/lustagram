@@ -1,6 +1,13 @@
 import { createStore, combineReducers } from 'redux'
 
-const reducerTest = (state = [], action) => state
+const reducerTest = (state = [0], action) => {
+  switch (action.type) {
+    case 'ADD_REDUCER_TEST':
+      return [...state, 1]
+    default:
+      return state
+  }
+}
 
 const reducers = combineReducers({
   reducerTest,

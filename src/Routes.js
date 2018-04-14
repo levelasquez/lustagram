@@ -34,7 +34,10 @@ const TabFollow = TabNavigator({
 }, { tabBarPosition: 'top' })
 
 const FollowStack = StackNavigator({
-  TabFollow: { screen: TabFollow },
+  TabFollow: {
+    screen: TabFollow,
+    navigationOptions: { header: null },
+  },
   Author: { screen: Author },
   Post: { screen: Post },
   Comment: { screen: Comment },

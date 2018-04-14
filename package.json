@@ -10,7 +10,8 @@
     "react-native": "https://github.com/expo/react-native/archive/sdk-26.0.0.tar.gz",
     "react-navigation": "^1.5.11",
     "react-redux": "^5.0.7",
-    "redux": "^3.7.2"
+    "redux": "^3.7.2",
+    "redux-form": "^7.3.0"
   },
   "devDependencies": {
     "eslint-config-airbnb": "^16.1.0",

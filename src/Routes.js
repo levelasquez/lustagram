@@ -1,7 +1,7 @@
 import { StackNavigator, TabNavigator } from 'react-navigation'
 
 import SignIn from './Auth/SignIn.component'
-import SignUp from './Auth/SignUp.component'
+import SignUp from './Auth/SignUp.container'
 
 import { Feed, Author, Post, Comment } from './Home'
 import Search from './Search/Search.component'

@@ -18,15 +18,19 @@ const HomeStack = StackNavigator({
   Feed: { screen: Feed },
   Author: { screen: Author },
   Post: { screen: Post },
-  Comment: {
-    screen: Comment,
-    navigationOptions: { tabBarVisible: false },
-  },
+  Comment: { screen: Comment },
+})
+
+const SearchStack = StackNavigator({
+  Search: { screen: Search },
+  Post: { screen: Post },
+  Author: { screen: Author },
+  Comment: { screen: Comment },
 })
 
 const TabRoutes = TabNavigator({
   Home: { screen: HomeStack },
-  Search: { screen: Search },
+  Search: { screen: SearchStack },
   Upload: { screen: Upload },
   Follow: { screen: Follow },
   Profile: { screen: Profile },

@@ -13,6 +13,10 @@ export class PostComponent extends Component {
       <View style={styles.container}>
         <Text>Post Component</Text>
         <Button
+          title='Author'
+          onPress={this.navigate('Author')}
+        />
+        <Button
           title='Comment'
           onPress={this.navigate('Comment')}
         />

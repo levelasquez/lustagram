@@ -8,6 +8,7 @@
       "jsx-quotes": ["error", "prefer-single"],
       "arrow-parens": [2, "as-needed"],
       "react/prop-types": [0],
-      "react/require-default-props": [0]
+      "react/require-default-props": [0],
+      "react/prefer-stateless-function": 0
     }
 }

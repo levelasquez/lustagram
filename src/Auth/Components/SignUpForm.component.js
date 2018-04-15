@@ -1,23 +1,8 @@
 import React, { Component } from 'react'
-import { View, Text, TextInput, Button } from 'react-native'
+import { View, Text, Button } from 'react-native'
 import { Field, reduxForm } from 'redux-form'
 
-const fieldName = props => {
-  const {
-    input: {
-      onChange,
-      value,
-    },
-  } = props
-
-  return (
-    <TextInput
-      placeholder='text from field name'
-      onChangeText={onChange}
-      value={value}
-    />
-  )
-}
+import TextInput from './TextInput.component'
 
 export class SignUpFormComponent extends Component {
   render() {
@@ -27,11 +12,27 @@ export class SignUpFormComponent extends Component {
       <View>
         <Field
           name='name'
-          component={fieldName}
+          placeholder='name'
+          component={TextInput}
+          autoCapitalize='words'
         />
         <Field
           name='email'
-          component={fieldName}
+          placeholder='email@provider.com'
+          component={TextInput}
+          keyboardType='email-address'
+        />
+        <Field
+          name='password'
+          placeholder='******'
+          component={TextInput}
+          secureTextEntry
+        />
+        <Field
+          name='confirmation'
+          placeholder='******'
+          component={TextInput}
+          secureTextEntry
         />
         <Text>Redux Form</Text>
         <Button

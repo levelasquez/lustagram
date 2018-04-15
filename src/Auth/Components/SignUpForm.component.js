@@ -3,6 +3,7 @@ import { View, Text, Button } from 'react-native'
 import { Field, reduxForm } from 'redux-form'
 
 import TextInput from './TextInput.component'
+import validate from './validate'
 
 export class SignUpFormComponent extends Component {
   render() {
@@ -44,4 +45,7 @@ export class SignUpFormComponent extends Component {
   }
 }
 
-export default reduxForm({ form: 'SignUpForm' })(SignUpFormComponent)
+export default reduxForm({
+  form: 'SignUpForm',
+  validate,
+})(SignUpFormComponent)

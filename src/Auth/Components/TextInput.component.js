@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { TextInput } from 'react-native'
+import { View, TextInput, Text } from 'react-native'
 
 export class TextInputComponent extends Component {
   render() {
@@ -8,6 +8,10 @@ export class TextInputComponent extends Component {
         onChange,
         value,
       },
+      meta: {
+        error,
+        touched,
+      },
       placeholder,
       keyboardType,
       autoCapitalize,
@@ -15,14 +19,18 @@ export class TextInputComponent extends Component {
     } = this.props
 
     return (
-      <TextInput
-        placeholder={placeholder}
-        onChangeText={onChange}
-        value={value}
-        keyboardType={keyboardType || 'default'}
-        autoCapitalize={autoCapitalize || 'none'}
-        secureTextEntry={secureTextEntry}
-      />
+      <View>
+        <TextInput
+          placeholder={placeholder}
+          onChangeText={onChange}
+          value={value}
+          keyboardType={keyboardType || 'default'}
+          autoCapitalize={autoCapitalize || 'none'}
+          secureTextEntry={secureTextEntry}
+        />
+        {touched && error &&
+          <Text>{error}</Text>}
+      </View>
     )
   }
 }

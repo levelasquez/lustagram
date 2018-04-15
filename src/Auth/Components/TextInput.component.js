@@ -7,6 +7,7 @@ export class TextInputComponent extends Component {
       input: {
         onChange,
         value,
+        onBlur,
       },
       meta: {
         error,
@@ -27,6 +28,7 @@ export class TextInputComponent extends Component {
           keyboardType={keyboardType || 'default'}
           autoCapitalize={autoCapitalize || 'none'}
           secureTextEntry={secureTextEntry}
+          onBlur={onBlur}
         />
         {touched && error &&
           <Text>{error}</Text>}

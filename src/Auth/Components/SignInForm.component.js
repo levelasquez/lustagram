@@ -3,20 +3,14 @@ import { View, Text, Button } from 'react-native'
 import { Field, reduxForm } from 'redux-form'
 
 import TextInput from './TextInput.component'
-import validate from './validateSignUp'
+import validate from './validateSignIn'
 
-export class SignUpFormComponent extends Component {
+export class SignInFormComponent extends Component {
   render() {
     const { handleSubmit } = this.props
 
     return (
       <View>
-        <Field
-          name='name'
-          placeholder='name'
-          component={TextInput}
-          autoCapitalize='words'
-        />
         <Field
           name='email'
           placeholder='email@provider.com'
@@ -29,15 +23,9 @@ export class SignUpFormComponent extends Component {
           component={TextInput}
           secureTextEntry
         />
-        <Field
-          name='confirmation'
-          placeholder='******'
-          component={TextInput}
-          secureTextEntry
-        />
         <Text>Redux Form</Text>
         <Button
-          title='Register'
+          title='Sign In'
           onPress={handleSubmit(values => console.log(values))}
         />
       </View>
@@ -46,6 +34,6 @@ export class SignUpFormComponent extends Component {
 }
 
 export default reduxForm({
-  form: 'SignUpForm',
+  form: 'SignInForm',
   validate,
-})(SignUpFormComponent)
+})(SignInFormComponent)

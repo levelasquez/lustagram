@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text, Button } from 'react-native'
+import { View, Button } from 'react-native'
 import { Field, reduxForm } from 'redux-form'
 
 import TextInput from './TextInput.component'
@@ -35,7 +35,6 @@ export class SignUpFormComponent extends Component {
           component={TextInput}
           secureTextEntry
         />
-        <Text>Redux Form</Text>
         <Button
           title='Register'
           onPress={handleSubmit(values => console.log(values))}

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, TextInput, Text } from 'react-native'
+import { View, TextInput, Text, StyleSheet } from 'react-native'
 
 export class TextInputComponent extends Component {
   render() {
@@ -20,7 +20,7 @@ export class TextInputComponent extends Component {
     } = this.props
 
     return (
-      <View>
+      <View style={styles.textInput}>
         <TextInput
           placeholder={placeholder}
           onChangeText={onChange}
@@ -30,11 +30,21 @@ export class TextInputComponent extends Component {
           secureTextEntry={secureTextEntry}
           onBlur={onBlur}
         />
+        <View style={styles.line} />
         {touched && error &&
-          <Text>{error}</Text>}
+          <Text style={styles.errors}>{error}</Text>}
       </View>
     )
   }
 }
+
+const styles = StyleSheet.create({
+  textInput: { marginBottom: 16 },
+  line: {
+    backgroundColor: '#DCDCDC',
+    height: 1,
+  },
+  errors: { color: '#FF0000' },
+})
 
 export default TextInputComponent

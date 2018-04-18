@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { View, Button } from 'react-native'
 import { Field, reduxForm } from 'redux-form'
 
+import { Authentication } from '../../Firebase'
+
 import TextInput from './TextInput.component'
 import validate from './validateSignUp'
 
@@ -37,7 +39,10 @@ export class SignUpFormComponent extends Component {
         />
         <Button
           title='Register'
-          onPress={handleSubmit(values => console.log(values))}
+          onPress={handleSubmit(({ email, password }) =>
+            Authentication.createUserWithEmailAndPassword(email, password)
+              .then(success => console.log({ success }))
+              .catch(error => console.log({ error })))}
         />
       </View>
     )

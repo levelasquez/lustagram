@@ -2,14 +2,15 @@ import React, { Component } from 'react'
 import { View, Button } from 'react-native'
 import { Field, reduxForm } from 'redux-form'
 
-import { Authentication } from '../../Firebase'
-
 import TextInput from './TextInput.component'
 import validate from './validateSignUp'
 
 export class SignUpFormComponent extends Component {
   render() {
-    const { handleSubmit } = this.props
+    const {
+      handleSubmit,
+      handleRegister,
+    } = this.props
 
     return (
       <View>
@@ -39,10 +40,7 @@ export class SignUpFormComponent extends Component {
         />
         <Button
           title='Register'
-          onPress={handleSubmit(({ email, password }) =>
-            Authentication.createUserWithEmailAndPassword(email, password)
-              .then(success => console.log({ success }))
-              .catch(error => console.log({ error })))}
+          onPress={handleSubmit(handleRegister)}
         />
       </View>
     )

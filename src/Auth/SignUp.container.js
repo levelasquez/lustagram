@@ -5,6 +5,12 @@ import { connect } from 'react-redux'
 import SignUpForm from './Components/SignUpForm.component'
 
 export class SignUpComponent extends Component {
+  handleRegister = values => {
+    const { register } = this.props
+
+    register(values)
+  }
+
   handleGoBack = () => {
     const { navigation: { goBack } } = this.props
 
@@ -14,7 +20,7 @@ export class SignUpComponent extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <SignUpForm />
+        <SignUpForm handleRegister={this.handleRegister} />
         <Button
           title='Sign In'
           onPress={this.handleGoBack}
@@ -41,7 +47,7 @@ export const mapStateToProps = state => {
 }
 
 export const mapDispatchToProps = dispatch => ({
-  add: () => dispatch({ type: 'ADD_REDUCER_TEST' }),
+  register: payload => dispatch({ type: 'REGISTER', payload }),
 })
 
 export default connect(

@@ -1,9 +1,16 @@
 import React, { Component } from 'react'
 import { View, Button, StyleSheet } from 'react-native'
+import { connect } from 'react-redux'
 
 import SignInForm from './Components/SignInForm.component'
 
 export class SignInComponent extends Component {
+  handleLogin = values => {
+    const { login } = this.props
+
+    login(values)
+  }
+
   handleNavigate = route => () => {
     const { navigation: { navigate } } = this.props
 
@@ -13,7 +20,7 @@ export class SignInComponent extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <SignInForm />
+        <SignInForm handleLogin={this.handleLogin} />
         <Button
           title='Sign Up'
           onPress={this.handleNavigate('SignUp')}
@@ -31,4 +38,17 @@ const styles = StyleSheet.create({
   },
 })
 
-export default SignInComponent
+export const mapStateToProps = state => {
+  const { reducerTest } = state
+
+  return { reducerTest }
+}
+
+export const mapDispatchToProps = dispatch => ({
+  login: payload => dispatch({ type: 'LOGIN', payload }),
+})
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(SignInComponent)

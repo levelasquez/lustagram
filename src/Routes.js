@@ -1,6 +1,6 @@
 import { StackNavigator, TabNavigator } from 'react-navigation'
 
-import SignIn from './Auth/SignIn.component'
+import SignIn from './Auth/SignIn.container'
 import SignUp from './Auth/SignUp.container'
 
 import { Feed, Author, Post, Comment } from './Home'

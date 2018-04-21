@@ -7,7 +7,10 @@ import validate from './validateSignIn'
 
 export class SignInFormComponent extends Component {
   render() {
-    const { handleSubmit } = this.props
+    const {
+      handleSubmit,
+      handleLogin,
+    } = this.props
 
     return (
       <View>
@@ -25,7 +28,7 @@ export class SignInFormComponent extends Component {
         />
         <Button
           title='Sign In'
-          onPress={handleSubmit(values => console.log(values))}
+          onPress={handleSubmit(handleLogin)}
         />
       </View>
     )

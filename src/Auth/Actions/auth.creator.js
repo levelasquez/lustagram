@@ -1,4 +1,4 @@
-import { REGISTER, LOGIN } from './auth.const'
+import { REGISTER, LOGIN, SIGNIN, SIGNOUT } from './auth.const'
 
 export const actionRegister = payload => ({
   type: REGISTER,
@@ -9,3 +9,7 @@ export const actionLogin = payload => ({
   type: LOGIN,
   payload,
 })
+
+export const actionSignIn = () => ({ type: SIGNIN })
+
+export const actionSignOut = () => ({ type: SIGNOUT })

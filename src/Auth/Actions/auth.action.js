@@ -1,6 +1,7 @@
-import { call } from 'redux-saga/effects'
+import { call, put } from 'redux-saga/effects'
 
-import { firebaseRegister, registerDatabase, firebaseLogin } from '../../Firebase'
+import { firebaseRegister, registerDatabase, firebaseLogin, firebaseSignIn } from '../../Firebase'
+import { SIGNIN, SIGNOUT } from './auth.const'
 
 export default {
   * register({ payload: { email, password, name } }) {
@@ -14,6 +15,19 @@ export default {
   * login({ payload: { email, password } }) {
     try {
       yield call(firebaseLogin, email, password)
+    } catch (error) {
+      console.log({ error })
+    }
+  },
+  * signin() {
+    try {
+      const user = yield call(firebaseSignIn)
+
+      if (user) {
+        yield put({ type: SIGNIN, payload: user })
+      } else {
+        yield put({ type: SIGNOUT })
+      }
     } catch (error) {
       console.log({ error })
     }

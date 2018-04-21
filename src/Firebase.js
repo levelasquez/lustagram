@@ -24,3 +24,9 @@ export const registerDatabase = (userId, email, name) =>
 export const firebaseLogin = (email, password) =>
   Firebase.auth().signInWithEmailAndPassword(email, password)
     .then(user => user.toJSON())
+
+export const firebaseSignIn = () =>
+  new Promise((resolve, reject) =>
+    Firebase.auth().onAuthStateChanged(user => (user
+      ? resolve(user.toJSON())
+      : reject(new Error('Ops!')))))

@@ -3,20 +3,12 @@ import { reducer as form } from 'redux-form'
 import createSagaMiddleware from 'redux-saga'
 
 import Sagas from './Sagas'
-
-const reducerTest = (state = [0], action) => {
-  switch (action.type) {
-    case 'ADD_REDUCER_TEST':
-      return [...state, 1]
-    default:
-      return state
-  }
-}
+import allReducers from './Reducers'
 
 const sagaMiddleware = createSagaMiddleware()
 
 const reducers = combineReducers({
-  reducerTest,
+  ...allReducers,
   form,
 })
 

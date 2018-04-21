@@ -3,6 +3,7 @@ import { View, Button, StyleSheet } from 'react-native'
 import { connect } from 'react-redux'
 
 import SignInForm from './Components/SignInForm.component'
+import { actionLogin } from './Actions/auth.creator'
 
 export class SignInComponent extends Component {
   handleLogin = values => {
@@ -45,7 +46,7 @@ export const mapStateToProps = state => {
 }
 
 export const mapDispatchToProps = dispatch => ({
-  login: payload => dispatch({ type: 'LOGIN', payload }),
+  login: payload => dispatch(actionLogin(payload)),
 })
 
 export default connect(

@@ -3,6 +3,7 @@ import { View, Button, StyleSheet } from 'react-native'
 import { connect } from 'react-redux'
 
 import SignUpForm from './Components/SignUpForm.component'
+import { actionRegister } from './Actions/auth.creator'
 
 export class SignUpComponent extends Component {
   handleRegister = values => {
@@ -47,7 +48,7 @@ export const mapStateToProps = state => {
 }
 
 export const mapDispatchToProps = dispatch => ({
-  register: payload => dispatch({ type: 'REGISTER', payload }),
+  register: payload => dispatch(actionRegister(payload)),
 })
 
 export default connect(

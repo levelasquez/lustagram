@@ -1,10 +1,10 @@
-import { SIGNIN, SIGNOUT } from '../Actions/auth.const'
+import { SIGNOUT } from '../Actions/auth.const'
 
-const initialState = { user: null }
+const defaultState = { user: null }
 
-export default function authReducer(state = initialState, action) {
+export default function authReducer(state = defaultState, action) {
   switch (action.type) {
-    case SIGNIN:
+    case 'USER_SET':
       return {
         ...state,
         user: action.payload,

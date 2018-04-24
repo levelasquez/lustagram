@@ -3,15 +3,9 @@ import { View, Button, StyleSheet } from 'react-native'
 import { connect } from 'react-redux'
 
 import SignInForm from './Components/SignInForm.component'
-import { actionLogin, actionSignIn } from './Actions/auth.creator'
+import { actionLogin } from './Actions/auth.creator'
 
 export class SignInComponent extends Component {
-  componentDidMount() {
-    const { signIn } = this.props
-
-    signIn()
-  }
-
   handleLogin = values => {
     const { login } = this.props
 
@@ -45,15 +39,10 @@ const styles = StyleSheet.create({
   },
 })
 
-export const mapStateToProps = state => {
-  const { reducerTest } = state
-
-  return { reducerTest }
-}
+export const mapStateToProps = state => ({ state })
 
 export const mapDispatchToProps = dispatch => ({
   login: payload => dispatch(actionLogin(payload)),
-  signIn: () => dispatch(actionSignIn()),
 })
 
 export default connect(

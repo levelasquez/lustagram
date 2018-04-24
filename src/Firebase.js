@@ -26,7 +26,9 @@ export const firebaseLogin = (email, password) =>
     .then(user => user.toJSON())
 
 export const firebaseSignIn = () =>
-  new Promise((resolve, reject) =>
+  new Promise(resolve =>
     Firebase.auth().onAuthStateChanged(user => (user
       ? resolve(user.toJSON())
-      : reject(new Error('Ops!')))))
+      : resolve(null))))
+
+export const firebaseSignOut = () => Firebase.auth().signOut()
